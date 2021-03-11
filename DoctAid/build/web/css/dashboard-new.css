@@ -16,7 +16,11 @@
 }
 
 .navbar-nav {
-  list-style: none;
+    list-style: none;
+}
+
+.form-contact, .imfo-header {
+    color: #FFFFFF !important;
 }
 
 .user-icone {
@@ -105,7 +109,7 @@ body {
 .side-nav .info {
     float: left;
     width: 69%;
-    margin-left: 20%;
+    margin-left: 15%;
 }
 
 .side-nav .heading .info>h3 {
@@ -537,6 +541,12 @@ body {
 .navbar>.container .navbar-brand,
 .navbar>.container-fluid .navbar-brand {
     margin: 0 !important;
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 800px;
+    }
 }
 
 @media (max-width: 767px) {

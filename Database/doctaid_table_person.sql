@@ -36,7 +36,7 @@ INSERT INTO `person` (`personId`, `firstName`, `lastName`, `userName`, `password
 (10, 'Emalshi', 'Perera', 'emalshi', 'qwerty', 889236840000, '1', 1, 'F', 'No.40, Bandaranayake Mawatha', '8100055671'),
 (11, 'Dr. Rachit', 'Mohommed', 'rachit', 'qwerty', 925842600000, '1', 2, 'M', '266 Vauxhall Street, 02', '8114487323'),
 (12, 'Dr. Alwis', 'De', 'alwis', 'qwerty', 889236840000, '1', 2, 'M', '117/2 4th Cross Street, 11', '8240558662'),
-(13, 'Dr. Nathas', 'Sewwandi', 'nathasha', 'qwerty', 925842600000, '1', 2, 'F', '194 1/11 Prince Street, 11', '9521356402'),
+(13, 'Dr. Nathasha', 'Sewwandi', 'nathasha', 'qwerty', 925842600000, '1', 2, 'F', '194 1/11 Prince Street, 11', '9521356402'),
 (14, 'Dr. Perera', 'Sachith', 'sachith', 'qwerty', 889236840000, '1', 2, 'M', '114 Ward Place, 07', '8987213127'),
 (15, 'Dr. Manas', 'Jain', 'manas', 'qwerty', 925842600000, '1', 2, 'M', '93/6 Keyzer Street, 11', '8898645151'),
 (16, 'Ruchira', 'Perera', 'ruchira', 'qwerty', 925842600000, '1', 3, 'F', '98 Canal Bank Road, Off Hill Street', '8574878596'),

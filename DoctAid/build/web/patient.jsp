@@ -15,12 +15,11 @@
 
         <head>
             <meta charset="UTF-8" />
-            <title>Patient Dashboard - Central Medic Center</title>
+            <title>Patient Dashboard - DoctAid</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
             <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" />
-            <link rel="stylesheet" href="index.css" />
             <link rel="stylesheet" href="css/dashboard-new.css">
         </head>
 
@@ -157,7 +156,7 @@
                                 >
                                 <i class="fa fa-align-right"></i>
                             </button>
-                            <a class="navbar-brand" href="#">Doct<span class="main-color">Aid</span></a
+                            <a class="navbar-brand" href="patient">Doct<span class="main-color">Aid</span></a
                             >
                         </div>
                         <div
@@ -180,7 +179,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="content">
-                                    <h2>Hello <%= patient.getFirstName() %>, Welcome to Dashboard</h2>
+                                    <h2>Hello <%= patient.getFirstName()%>, Welcome to Dashboard</h2>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
                                     </p>
