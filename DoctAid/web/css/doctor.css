@@ -1,0 +1,52 @@
+.card {
+    border-width: 1px;
+    border-style: solid;
+}
+
+.cardImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.cardText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222222;
+    color: white;
+    padding: 20px;
+    font-size: larger;
+}
+.prescriptionOptions, .LabReportOptions{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.LabReportOptions .form-group{
+    width:100%;
+}
+
+.cardText {
+    background-color: #29bbfd !important;
+    font-size: 18px
+}
+
+
+.card {
+    border: none !important;  
+    margin-top: 20px;
+}
+
+.panel {
+    margin-top: 70px;
+}
+
+.panel-heading {
+    border: 1px solid #29bbfd;
+    color: #29bbfd;
+}
+
+h1 {
+    color: #29bbfd;
+}

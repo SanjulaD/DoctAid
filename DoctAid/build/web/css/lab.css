@@ -1,0 +1,19 @@
+.tableHere{
+    margin-top: 25px;
+}
+.padding-up{
+    padding-top: 14px !important;
+}
+.labReports{
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.labReports:hover,.activeReports{
+    color:#fff;	
+    background-color: #428bca;
+}
+.notActiveReports{
+    background-color: #F5F5F5;
+    color: #333333;
+}
