@@ -16,70 +16,54 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Receptionist Dashboard - Central Medic Center</title>
+            <title>Receptionist Dashboard - DoctAid</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet"
-                  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                  crossorigin="anonymous">
-            <link rel="stylesheet" href="css/dashboard.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" />
+            <link rel="stylesheet" href="css/dashboard-new.css">
             <link rel="stylesheet" href="css/patient.css">
 
         </head>
         <body>
-
-
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed"
-                                data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                                aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span> <span
-                                class="icon-bar"></span> <span class="icon-bar"></span> <span
-                                class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="receptionist">Central Medic Center</a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="#">Dashboard</a></li>
-                            <li><a href="updateReceptionistProfile">Edit Profile</a>
-                            <li><a href="logout">Logout</a></li>
-                        </ul>
-                        <form class="navbar-form navbar-right">
-                            <input type="text" class="form-control" placeholder="Search...">
-                        </form>
+            <aside class="side-nav" id="show-side-navigation1">
+                <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+                <div class="heading">
+                    <div class="col-md-12">
+                        <div class="row" style="margin-bottom: 20px">
+                            <img class="center-block"  src="media/receptionist.svg" alt="user-image" width="200px" />
+                        </div>
+                        <div class="row">
+                            <div class="info">
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-user user-icone" style="color:darkgrey" ></i> <%= receptionist.getFirstName() + " " + receptionist.getLastName()%>
+                                    </a>
+                                </h3>
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-mars-stroke user-icone" style="color: greenyellow"></i> <%= receptionist.getGender() + ", " + receptionist.getAge()%>
+                                    </a>
+                                </h3>
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-home user-icone" style="color: #ffc107"></i> <%= receptionist.getAddress()%>
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-3 sidebar">
-                        <ul class="nav nav-sidebar">
-                            <li class="active">
-                                <div class="row intro">
-                                    <div class="">
-                                        <img class="profilePic" src="media/receptionist.png">
-                                    </div>
-                                </div>
-                                <div class="row intro">
-                                    <h3 class="name"><%= receptionist.getFirstName() + " " + receptionist.getLastName()%></h3>
-                                    <div class="details-set">
-                                        <img src="media/gender.png"><span class="details">
-                                            <%= receptionist.getGender() + ", " + receptionist.getAge()%></span><br> 
-                                        <img src="media/degree.png"><span class="degree"> Receptionist</span><br>
-                                        <img src="media/Location.png"><span class="location">
-                                            <%= receptionist.getAddress()%></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic"><span class="upcoming">Unallocated
-                                    Appointment</span> <% ArrayList<Appointment> unallocatedAppointments = arrayList.get(0);
-                                        for (int i = 0; i < unallocatedAppointments.size(); i++) {
-                                            Appointment appointment = unallocatedAppointments.get(i);
-                                    %>
+                <ul class="categories">
+                    <li>
+                        <i class="fa fa-support fa-fw"></i
+                        ><a href="#"> Unallocated Appointment</a>
+                        <ul class="side-nav-dropdown">
+                            <li>
+                                <% ArrayList<Appointment> unallocatedAppointments = arrayList.get(0);
+                                    for (int i = 0; i < unallocatedAppointments.size(); i++) {
+                                        Appointment appointment = unallocatedAppointments.get(i);
+                                %>
                                 <form class="form-signin" action="receptionistAppointmentDetails"
                                       method="post">
                                     <input type="hidden" class="form-control" name="appointmentId"
@@ -102,14 +86,20 @@
                                         </li>
                                     </ul>
                                 </form>
-
                                 <%  }
 
                                 %>
                             </li>
-                            <li class="topic">Allocated Appointment <% ArrayList<Appointment> allocatedAppointments = arrayList.get(1);
-                                for (int i = 0; i < allocatedAppointments.size(); i++) {
-                                    Appointment appointment = allocatedAppointments.get(i);
+                        </ul>
+                    </li>
+                    <li>
+                        <i class="fa fa-external-link fa-fw"></i
+                        ><a href="#"> Allocated Appointment</a>
+                        <ul class="side-nav-dropdown">
+                            <li>
+                                <% ArrayList<Appointment> allocatedAppointments = arrayList.get(1);
+                                    for (int i = 0; i < allocatedAppointments.size(); i++) {
+                                        Appointment appointment = allocatedAppointments.get(i);
                                 %>
                                 <form class="form-signin" action="receptionistAppointmentDetails"
                                       method="post">
@@ -139,62 +129,118 @@
                                 %>
                             </li>
                         </ul>
-                    </div>
-                    <div class="col-sm-9 col-sm-offset-3 main">
-                        <h1 class="page-header">Dashboard</h1>
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="cardImage">
-                                        <img src="media/appointment.png">
-                                    </div>
-                                    <div class="cardText"><%= dashBoard.getNoOfAppointment()%> Appointment Request</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="cardImage">
-                                        <img src="media/bmi.png">
-                                    </div>
-                                    <div class="cardText"><%= dashBoard.getPatientCount()%> Total Appointments</div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="card">
-                                    <div class="cardImage">
-                                        <img src="media/edit.png">
-                                    </div>
-                                    <div class="cardText"><%= dashBoard.getPercentProfile()%>% Profile</div>
-                                </div>
-                            </div>
+                    </li>
+                </ul>
+            </aside>
+            <section id="contents">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button
+                                type="button"
+                                class="navbar-toggle collapsed"
+                                data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false"
+                                >
+                                <i class="fa fa-align-right"></i>
+                            </button>
+                            <a class="navbar-brand" href="patient">Doct<span class="main-color">Aid</span></a
+                            >
                         </div>
-                        <br>
-                        <div class="row text-center">
-                            <div class="col-sm-12">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
-                                        Last Login
-                                    </div>
-                                    <div class="panel-body">
-                                        <%= session.getAttribute("LastAccess")%>
-                                    </div>
+                        <div
+                            class="collapse navbar-collapse navbar-right"
+                            id="bs-example-navbar-collapse-1"
+                            >
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item">
+                                    <a href="updateReceptionistProfile"><i class="fa fa-user-o fw"></i> Edit Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="logout" ><i class="fa fa-sign-out"></i> Log out</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="welcome">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content">
+                                    <h2>Hello <%= receptionist.getFirstName()%>, Welcome to Dashboard</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <section class="statistics">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="box">
+                                    <i class="fa fa-envelope fa-fw bg-primary"></i>
+                                    <div class="info">
+                                        <h3>
+                                            <%= dashBoard.getNoOfAppointment()%> 
+                                        </h3>
+                                        <p>Appointment Request</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box">
+                                    <i class="fa fa-line-chart fa-fw danger"></i>
+                                    <div class="info">
+                                        <h3>
+                                            <%= dashBoard.getPatientCount()%> 
+                                        </h3>
+                                        <p>Total Appointments</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="box">
+                                    <i class="fa fa-medkit fa-fw success"></i>
+                                    <div class="info">
+                                        <h3>
+                                            <%= dashBoard.getPercentProfile()%>% 
+                                        </h3>
+                                        <p>Profile</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="statis text-center">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    Last Login
+                                </div>
+                                <div class="panel-body">
+                                    <%= session.getAttribute("LastAccess")%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
+        </section>
 
-            <!-- Bootstrap core JavaScript
-    ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-            <script
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        </body>
-    </html>
-    <%
-        }
-    %>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/dashboard.js"></script>
+    </body>
+</html>
+<%
+    }
+%>

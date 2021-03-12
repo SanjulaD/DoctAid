@@ -32,7 +32,7 @@
             <br>
             <div class="container">
                 <h1 class="heading" style="text-align: center; margin-top: 10px; margin-bottom: 50px; color: #007bfe">
-                    Central Medic Center
+                    DoctAid
                 </h1>
                 <form class="form-horizontal form-signup" id="mainForm" role="form"
                       action="signup" method="post" autocomplete="off" style="margin-bottom: 100px; box-shadow: 2px 2px 20px 2px #888888;">

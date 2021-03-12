@@ -12,7 +12,6 @@
     %>
 
     <html lang="en">
-
         <head>
             <meta charset="UTF-8" />
             <title>Patient Dashboard - DoctAid</title>
@@ -181,7 +180,7 @@
                                 <div class="content">
                                     <h2>Hello <%= patient.getFirstName()%>, Welcome to Dashboard</h2>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                                        We’re here to assist you before, during and after your visit to DoctAid. Find everything you need to make your visit as pleasant and comfortable as possible.
                                     </p>
                                 </div>
                             </div>

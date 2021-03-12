@@ -20,108 +20,55 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Receptionist Dashboard - Central Medic Center</title>
+            <title>Receptionist Dashboard - DoctAid</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet"
-                  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                  crossorigin="anonymous">
-            <link rel="stylesheet" href="css/dashboard.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" />
+            <link rel="stylesheet" href="css/dashboard-new.css">
             <link rel="stylesheet" href="css/patient.css">
             <link rel="stylesheet" href="css/appointment.css">
 
         </head>
         <body>
-
-
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed"
-                                data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                                aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span> <span
-                                class="icon-bar"></span> <span class="icon-bar"></span> <span
-                                class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="receptionist">Central Medic Center</a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="#">Dashboard</a></li>
-                            <li><a href="updateReceptionistProfile">Edit Profile</a>
-                            <li><a href="logout">Logout</a></li>
-                        </ul>
-                        <form class="navbar-form navbar-right">
-                            <input type="text" class="form-control" placeholder="Search...">
-                        </form>
+            <aside class="side-nav" id="show-side-navigation1">
+                <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+                <div class="heading">
+                    <div class="col-md-12">
+                        <div class="row" style="margin-bottom: 20px">
+                            <img class="center-block"  src="media/receptionist.svg" alt="user-image" width="200px" />
+                        </div>
+                        <div class="row">
+                            <div class="info">
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-user user-icone" style="color:darkgrey" ></i> <%= receptionist.getFirstName() + " " + receptionist.getLastName()%>
+                                    </a>
+                                </h3>
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-mars-stroke user-icone" style="color: greenyellow"></i> <%= receptionist.getGender() + ", " + receptionist.getAge()%>
+                                    </a>
+                                </h3>
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-home user-icone" style="color: #ffc107"></i> <%= receptionist.getAddress()%>
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-3 sidebar">
-                        <ul class="nav nav-sidebar">
-                            <li class="active">
-                                <div class="row intro">
-                                    <div class="">
-                                        <img class="profilePic" src="media/receptionist.png">
-                                    </div>
-                                </div>
-                                <div class="row intro">
-                                    <h3 class="name"><%= receptionist.getFirstName() + " " + receptionist.getLastName()%></h3>
-                                    <div class="details-set">
-                                        <img src="media/gender.png"><span class="details">
-                                            <%= receptionist.getGender() + ", " + receptionist.getAge()%></span><br> 
-                                        <img src="media/degree.png"><span class="degree"> Receptionist</span><br>
-                                        <img src="media/Location.png"><span class="location">
-                                            <%= receptionist.getAddress()%></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic"><span class="upcoming">Unallocated
-                                    Appointment</span> <% ArrayList<Appointment> unallocatedAppointments = arrayList.get(0);
-                                        for (int i = 0; i < unallocatedAppointments.size(); i++) {
-                                            Appointment appointment = unallocatedAppointments.get(i);
-                                    %>
-                                <form class="form-signin" action="receptionistAppointmentDetails"
-                                      method="post">
-                                    <input type="hidden" class="form-control" name="appointmentId"
-                                           value="<%= appointment.getId()%>" />
-                                    <ul>
-                                        <li class="subtopic">
-                                            <%
-                                                if (detailedAppointment.getId() == appointment.getId()) {
-                                            %>
-                                            <button class="btn btn-default activeAppointment" type="submit">
-                                                <%
-                                                } else {
-                                                %>
-                                                <button class="btn btn-default" type="submit">
-                                                    <%
-                                                        }
-                                                    %>
-                                                    <div class="row">
-                                                        <div class="col-sm-12 text-left">
-                                                            <div>
-                                                                <b><%= appointment.getTitle()%> </b><br>
-                                                                <% if (appointment.getDisease() != null) {%>
-                                                                <%= appointment.getDisease() + " | "%>
-                                                                <%  }%>
-                                                                <%= appointment.getStringDateCreated()%>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </button>
-                                        </li>
-                                    </ul>
-                                </form> <%  }
-
-                                %></li>
-                            <li class="topic">Allocated Appointment <% ArrayList<Appointment> allocatedAppointments = arrayList.get(1);
-                                for (int i = 0; i < allocatedAppointments.size(); i++) {
-                                    Appointment appointment = allocatedAppointments.get(i);
+                <ul class="categories">
+                    <li>
+                        <i class="fa fa-support fa-fw"></i
+                        ><a href="#"> Unallocated Appointment</a>
+                        <ul class="side-nav-dropdown">
+                            <li>
+                                <% ArrayList<Appointment> unallocatedAppointments = arrayList.get(0);
+                                    for (int i = 0; i < unallocatedAppointments.size(); i++) {
+                                        Appointment appointment = unallocatedAppointments.get(i);
                                 %>
                                 <form class="form-signin" action="receptionistAppointmentDetails"
                                       method="post">
@@ -129,41 +76,108 @@
                                            value="<%= appointment.getId()%>" />
                                     <ul>
                                         <li class="subtopic">
-                                            <%
-                                                if (detailedAppointment.getId() == appointment.getId()) {
-                                            %>
-                                            <button class="btn btn-default activeAppointment" type="submit">
-                                                <%
-                                                } else {
-                                                %>
-                                                <button class="btn btn-default" type="submit">
-                                                    <%
-                                                        }
-                                                    %>
-                                                    <div class="row">
-                                                        <div class="col-sm-12 text-left">
+                                            <button class="btn btn-default" type="submit">
+                                                <div class="row">
+                                                    <div class="col-sm-12 text-left">
+                                                        <div>
                                                             <b><%= appointment.getTitle()%> </b><br>
-                                                            <% Doctor doctor = appointment.getDoctor();
-                                                                if (doctor == null) {
-                                                            %>Wating for doctor approval
-                                                            <% } else {%>
-                                                            <%= doctor.getFirstName()%>
-                                                            <% }%>
-                                                            |
+                                                            <% if (appointment.getDisease() != null) {%>
+                                                            <%= appointment.getDisease() + " | "%>
+                                                            <%  }%>
                                                             <%= appointment.getStringDateCreated()%>
                                                         </div>
                                                     </div>
-                                                </button>
+                                                </div>
+                                            </button>
                                         </li>
                                     </ul>
-                                </form> 
+                                </form>
+                                <%  }
+
+                                %>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <i class="fa fa-external-link fa-fw"></i
+                        ><a href="#"> Allocated Appointment</a>
+                        <ul class="side-nav-dropdown">
+                            <li>
+                                <% ArrayList<Appointment> allocatedAppointments = arrayList.get(1);
+                                    for (int i = 0; i < allocatedAppointments.size(); i++) {
+                                        Appointment appointment = allocatedAppointments.get(i);
+                                %>
+                                <form class="form-signin" action="receptionistAppointmentDetails"
+                                      method="post">
+                                    <input type="hidden" class="form-control" name="appointmentId"
+                                           value="<%= appointment.getId()%>" /> 
+                                    <ul>
+                                        <li class="subtopic">
+                                            <button class="btn btn-default" type="submit">
+                                                <div class="row">
+                                                    <div class="col-sm-12 text-left">
+                                                        <b><%= appointment.getTitle()%> </b><br>
+                                                        <% Doctor doctor = appointment.getDoctor();
+                                                            if (doctor == null) {
+                                                        %>Wating for doctor approval
+                                                        <% } else {%>
+                                                        <%= doctor.getFirstName()%>
+                                                        <% }%>
+                                                        |
+                                                        <%= appointment.getStringDateCreated()%>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </form>
                                 <%  }
                                 %>
                             </li>
                         </ul>
+                    </li>
+                </ul>
+            </aside>
+            <section id="contents">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button
+                                type="button"
+                                class="navbar-toggle collapsed"
+                                data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false"
+                                >
+                                <i class="fa fa-align-right"></i>
+                            </button>
+                            <a class="navbar-brand" href="patient">Doct<span class="main-color">Aid</span></a
+                            >
+                        </div>
+                        <div
+                            class="collapse navbar-collapse navbar-right"
+                            id="bs-example-navbar-collapse-1"
+                            >
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item">
+                                    <a href="updateReceptionistProfile"><i class="fa fa-user-o fw"></i> Edit Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="logout" ><i class="fa fa-sign-out"></i> Log out</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-sm-9 col-sm-offset-3 main">
-                        <h1 class="page-header"><%=detailedAppointment.getTitle()%></h1>
+                </nav>
+                <div class="welcome">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content">
+                                    <h2>Appointment : <%=detailedAppointment.getTitle()%></h2>
+                                </div>
+                            </div>
+                        </div>
                         <div class="content">
                             <div class="row ">
                                 <div class="col-sm-3">
@@ -317,7 +331,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row">
                                 <div class="col-sm-10"></div>
                                 <div class="col-sm-2">
@@ -327,22 +340,22 @@
                                 </div>
                             </div>
                         </div>
-                        <%
-                                }
-                            }
-                        %>
                     </div>
                 </div>
-            </div>
-
-            <!-- Bootstrap core JavaScript
-    ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-            <script
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <%
+                        }
+                    }
+                %>
+            </section>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script>
+                window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+            </script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="js/dashboard.js"></script>
         </body>
     </html>
     <%} else {

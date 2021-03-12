@@ -63,8 +63,8 @@
             <div class="overlay-container">
                 <div class="overlay">
                     <div class="overlay-panel overlay-right">
-                        <h2>Hello, Friend!</h2>
-                        <p>Enter your personal details and start journey with us</p>
+                        <h2>Welcome to DoctAid</h2>
+                        <p>You can stay connected to your healthcare team though virtual visits, using your smartphone, tablet or computer. Ask your provider about what options are available</p>
                         <a href="signup"><button class="ghost" id="signUp">Sign Up</button></a>
                     </div>
                 </div>
