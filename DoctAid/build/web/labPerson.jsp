@@ -80,10 +80,10 @@
                         >
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item">
-                                <a href="updateLabPersonProfile"><i class="fa fa-user-o fw"></i> Edit Profile</a>
+                                <a href="updateLabPersonProfile"><i class="fa fa-user-o fa-fw"></i> Edit Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a href="logout" ><i class="fa fa-sign-out"></i> Log out</a>
+                                <a href="logout" ><i class="fa fa-sign-out fa-fw"></i> Log out</a>
                             </li>
                         </ul>
                     </div>

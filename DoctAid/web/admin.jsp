@@ -60,7 +60,7 @@
                 </div>
                 <ul class="categories" >
                     <li class="labReports activeReports tag-name" id="openHome">
-                        <i class="fa fa-plus fa-fw" aria-hidden="true" ></i>Home
+                        <i class="fa fa-plus fa-fw" aria-hidden="true" ></i>Dashboard
                     </li>
                     <li class="labReports tag-name" id="openPatients">
                         <i class="fa fa-plus fa-fw" aria-hidden="true" ></i>Patients
