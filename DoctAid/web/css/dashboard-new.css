@@ -8,6 +8,13 @@
     outline: none;
     text-decoration: none !important;
 }
+.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: #595b83 !important;
+}
+
+.tag-name {
+    color: white !important;
+}
 
 ::-webkit-scrollbar {
     background: transparent;
