@@ -44,12 +44,12 @@
                                 </h3>
                                 <h3>
                                     <a href="#">
-                                        <i class="fa fa-home user-icone" style="color: #ffc107"></i> <%= doctor.getDegree()%>
+                                        <i class="fa fa-graduation-cap user-icone" style="color: #ffc107"></i> <%= doctor.getDegree()%>
                                     </a>
                                 </h3>
                                 <h3>
                                     <a href="#">
-                                        <i class="fa fa-home user-icone" style="color: #ffc107"></i> <%= doctor.getSpecialization()%>
+                                        <i class="fa fa-stethoscope user-icone" style="color: #0275d8"></i> <%= doctor.getSpecialization()%>
                                     </a>
                                 </h3>
                             </div>

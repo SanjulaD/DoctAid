@@ -17,67 +17,57 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Doctor Appointment Dashboard - Central Medic Center</title>
-            <link rel="stylesheet"
-                  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-                  crossorigin="anonymous">
+            <title>Doctor Appointment Dashboard - DoctAid</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="css/dashboard.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+            <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet" />
+            <link rel="stylesheet" href="css/dashboard-new.css">
             <link rel="stylesheet" href="css/appointment.css">
             <link rel="stylesheet" href="css/doctor.css">
         </head>
         <body>
-
-
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed"
-                                data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                                aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span> <span
-                                class="icon-bar"></span> <span class="icon-bar"></span> <span
-                                class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="patient">Central Medic Center</a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="patient">Dashboard</a></li>
-                            <li><a href="updateDoctorProfile">Edit Profile</a>
-                            <li><a href="logout">Logout</a></li>
-                        </ul>
-                        <form class="navbar-form navbar-right">
-                            <input type="text" class="form-control" placeholder="Search...">
-                        </form>
+            <aside class="side-nav" id="show-side-navigation1">
+                <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+                <div class="heading">
+                    <div class="col-md-12">
+                        <div class="row" style="margin-bottom: 20px">
+                            <img class="center-block"  src="media/receptionist.svg" alt="user-image" width="200px" />
+                        </div>
+                        <div class="row">
+                            <div class="info">
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-user user-icone" style="color:darkgrey" ></i> <%= doctor.getFirstName() + " " + doctor.getLastName()%>
+                                    </a>
+                                </h3>
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-mars-stroke user-icone" style="color: greenyellow"></i> <%= doctor.getGender() + ", " + doctor.getAge()%>
+                                    </a>
+                                </h3>
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-graduation-cap user-icone" style="color: #ffc107"></i> <%= doctor.getDegree()%>
+                                    </a>
+                                </h3>
+                                <h3>
+                                    <a href="#">
+                                        <i class="fa fa-stethoscope user-icone" style="color: #0275d8"></i> <%= doctor.getSpecialization()%>
+                                    </a>
+                                </h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </nav>
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-3 sidebar">
-                        <ul class="nav nav-sidebar">
-                            <li class="active">
-                                <div class="row intro">
-                                    <div class="">
-                                        <img class="profilePic" src="media/doctor.svg">
-                                    </div>
-                                </div>
-                                <div class="row intro">
-                                    <h3 class="name"><%= doctor.getFirstName() + " " + doctor.getLastName()%></h3><br>
-                                    <div class="details-set">
-                                        <img src="media/gender.png"><span class="details">
-                                            <%= doctor.getGender() + ", " + doctor.getAge()%></span><br> <img
-                                            src="media/degree.png"><span class="blood"> <%= doctor.getDegree()%></span><br>
-                                        <img src="media/specialization.png"><span class="location">
-                                            <%= doctor.getSpecialization()%></span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="topic"><span class="upcoming"><b>Upcoming Appointment</b></span> 
-                                <% ArrayList<Appointment> upcomingAppointments = arrayList.get(0);
+                <ul class="categories">
+                    <li>
+                        <i class="fa fa-support fa-fw"></i
+                        ><a href="#"> Upcoming Appointment</a>
+                        <ul class="side-nav-dropdown">
+                            <li>
+                                <%
+                                    ArrayList<Appointment> upcomingAppointments = arrayList.get(0);
                                     for (int i = 0; i < upcomingAppointments.size(); i++) {
                                         Appointment appointment = upcomingAppointments.get(i);
                                 %>
@@ -87,13 +77,10 @@
                                            value="<%= appointment.getId()%>" />
                                     <ul>
                                         <li class="subtopic">
-                                            <%if (detailedAppointment.getId() == appointment.getId()) { %>
-                                            <button class="btn btn-default activeAppointment" type="submit">
-                                                <%} else { %>
-                                                <button class="btn btn-default" type="submit">
-                                                    <% }%>
-                                                    <div class="row">
-                                                        <div class="col-sm-12 text-left">
+                                            <button class="btn btn-default" type="submit">
+                                                <div class="row">
+                                                    <div class="col-sm-12 text-left">
+                                                        <div>
                                                             <b><%= appointment.getTitle()%> </b><br>
                                                             <% Patient patient = appointment.getPatient();
                                                                 if (patient == null) {
@@ -105,18 +92,23 @@
                                                             <%= appointment.getStringDateCreated()%>
                                                         </div>
                                                     </div>
-                                                </button>
+                                                </div>
                                             </button>
-
                                         </li>
                                     </ul>
                                 </form>
-
                                 <%  }
+
                                 %>
                             </li>
-                            <li class="topic"><b>Recent Appointment </b>
-                                <% ArrayList<Appointment> appointments2 = arrayList.get(1);
+                        </ul>
+                    </li>
+                    <li>
+                        <i class="fa fa-external-link fa-fw"></i
+                        ><a href="#"> Recent Appointment</a>
+                        <ul class="side-nav-dropdown">
+                            <li>
+                                <%                                    ArrayList<Appointment> appointments2 = arrayList.get(1);
                                     for (int i = 0; i < appointments2.size(); i++) {
                                         Appointment appointment = appointments2.get(i);
                                 %>
@@ -126,25 +118,20 @@
                                            value="<%= appointment.getId()%>" />
                                     <ul>
                                         <li class="subtopic">
-                                            <%if (detailedAppointment.getId() == appointment.getId()) { %>
-                                            <button class="btn btn-default activeAppointment" type="submit">
-                                                <%} else { %>
-                                                <button class="btn btn-default " type="submit">
-                                                    <%}%>
-                                                    <div class="row">
-                                                        <div class="col-sm-12 text-left">
-                                                            <b><%= appointment.getTitle()%> </b><br>
-                                                            <% Patient patient = appointment.getPatient();
-                                                                if (patient == null) {
-                                                            %>Wating for doctor approval
-                                                            <% } else {%>
-                                                            <%= patient.getFirstName()%>
-                                                            <% }%>
-                                                            |
-                                                            <%= appointment.getStringDateCreated()%>
-                                                        </div>
+                                            <button class="btn btn-default" type="submit">
+                                                <div class="row">
+                                                    <div class="col-sm-12 text-left">
+                                                        <b><%= appointment.getTitle()%> </b><br>
+                                                        <% Patient patient = appointment.getPatient();
+                                                            if (patient == null) {
+                                                        %>Wating for doctor approval
+                                                        <% } else {%>
+                                                        <%= patient.getFirstName()%>
+                                                        <% }%>
+                                                        |
+                                                        <%= appointment.getStringDateCreated()%>
                                                     </div>
-                                                </button>
+                                                </div>
                                             </button>
                                         </li>
                                     </ul>
@@ -153,10 +140,49 @@
                                 %>
                             </li>
                         </ul>
+                    </li>
+                </ul>
+            </aside>
+            <section id="contents">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button
+                                type="button"
+                                class="navbar-toggle collapsed"
+                                data-toggle="collapse"
+                                data-target="#bs-example-navbar-collapse-1"
+                                aria-expanded="false"
+                                >
+                                <i class="fa fa-align-right"></i>
+                            </button>
+                            <a class="navbar-brand" href="patient">Doct<span class="main-color">Aid</span></a
+                            >
+                        </div>
+                        <div
+                            class="collapse navbar-collapse navbar-right"
+                            id="bs-example-navbar-collapse-1"
+                            >
+                            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item">
+                                    <a href="updateDoctorProfile"><i class="fa fa-user-o fa-fw"></i> Edit Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="logout" ><i class="fa fa-sign-out fa-fw"></i> Log out</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-sm-9 col-sm-offset-3 main">
-                        <h1 class="page-header"><%= detailedAppointment.getTitle()%></h1>
-                        <br>
+                </nav>
+                <div class="welcome">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="content">
+                                    <h2>Appointment : <%=detailedAppointment.getTitle()%></h2>
+                                </div>
+                            </div>
+                        </div>
                         <div class="content">
                             <div class="row ">
                                 <div class="col-sm-4">
@@ -341,16 +367,16 @@
                         <% } %>
                     </div>
                 </div>
-            </div>
-
-            <!-- Bootstrap core JavaScript
-    ================================================== -->
-            <!-- Placed at the end of the document so the pages load faster -->
-            <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-            <script
-            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            </section>
+            <script src="http://code.jquery.com/jquery-latest.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script>
+                window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+            </script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script src="js/dashboard.js"></script>
             <script type="text/javascript">
                 $('input[type="radio"]').on('click', function () {
                     var selection = $(this).val();
