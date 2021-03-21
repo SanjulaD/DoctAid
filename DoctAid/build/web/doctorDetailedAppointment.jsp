@@ -18,6 +18,7 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Doctor Appointment Dashboard - DoctAid</title>
+            <link rel="icon" type="image/png" href="media/favicon.ico"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -156,8 +157,9 @@
                                 >
                                 <i class="fa fa-align-right"></i>
                             </button>
-                            <a class="navbar-brand" href="patient">Doct<span class="main-color">Aid</span></a
-                            >
+                            <a class="navbar-brand" href="patient">
+                                <img style="margin-top: 8px" src="media/Logo.png" alt="Logo" width="150">
+                            </a>
                         </div>
                         <div
                             class="collapse navbar-collapse navbar-right"
