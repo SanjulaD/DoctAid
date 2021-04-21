@@ -27,69 +27,152 @@
               integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
               crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="css/signup.css" />
-            
-
     </head>
     <body>
         <div class="container" id="container">
             <div class="form-container sign-in-container">
-                <form class="form-signin" action="signup" method="post" id="loginForm">
+                <form class="form-signup" action="signup" method="post"
+                      id="mainForm" role="form" autocomplete="off" >
+                    <br /><br /><br /><br /><br /><br /><br /><br />
                     <h1>Sign up</h1>
-                  
-                    <input type="text" name="firstName"
-                           placeholder="firstName" required autofocus/>
-                    <input type="text" name="lastName"
-                           placeholder="lastName" required/>
-                   
-                    <input type="text" name="Username"
-                           placeholder="Username" required/>
-                   
-                    <input type="Password" name="Password"
-                           placeholder="Password" required/>
-                     <input type="date" name="birthDate"
-                           placeholder="Date
-                            of Birth" required/>
-                      <input type="address" name="address"
-                           placeholder="address
-                           " required/>
-                        <input type="text" name="tel"
-                           placeholder="phone number
-                           " required/>
-                  
-                        
+                    <br />
+                    <div class="form-group">
+                        <label for="firstName" class="col-sm-3 control-label">First
+                            Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="firstName" placeholder="First Name"
+                                   class="form-control" maxlength="10" autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="col-sm-3 control-label">Last
+                            Name</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="lastName" placeholder="Last Name"
+                                   class="form-control" maxlength="10" autofocus required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="username" class="col-sm-3 control-label ">Username</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="userName" placeholder="Username"
+                                   class="form-control" maxlength="20" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-9">
+                            <input type="password" name="password" placeholder="Password"
+                                   class="form-control" maxlength="20" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate" class="col-sm-3 control-label">Date
+                            of Birth</label>
+                        <div class="col-sm-9">
+                            <input type="date" name="dob" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Gender</label>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="radio col-sm-3">
+                                    <label class="radio-inline"> <input name="gender"
+                                                                        type="radio" id="femaleRadio" value="F">Female
+                                    </label>
+                                </div>
+                                <div class="radio col-sm-3">
+                                    <label class="radio-inline"> <input name="gender"
+                                                                        type="radio" id="maleRadio" value="M" checked>Male
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="address"
+                                   placeholder="BH3, The LNMIIT, Jaipur" class="form-control"
+                                   maxlength="40" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="number" class="col-sm-3 control-label">Phone
+                            Number</label>
+                        <div class="col-sm-9">
+                            <input type="tel" name="contactNumber" placeholder="+94771234567"
+                                   class="form-control" maxlength="13" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userType" class="col-sm-3 control-label">User
+                            Type</label>
                         <div class="col-sm-9">
                             <select id="userType" name="userType" class="form-control" required>
-                                <option value="" selected disabled>User type</option>
+                                <option value="" selected disabled>Choose One</option>
                                 <option value="1">Patient</option>
                                 <option value="2">Doctor</option>
                             </select>
                         </div>
-                        
-                               <input type="number" name="Height"
-                           placeholder="in cms
-                           " required/>
-                                <input type="number" name="weight"
-                           placeholder="in kgs
-                           " required/>
-                                   <input type="text" name="Degree"
-                           placeholder="MBBS
-                           " required/>
-                                      <input type="text" name="Degree"
-                           placeholder="MBBS
-                           " required/>
-                                      <input type="text" name="Specialization"
-                           placeholder="Specialization
-                           " required/>
-                    <%
-                        String message = (String) request.getAttribute("error");
-                        if (message != null) {
-                    %>
-                    <h4><%= message%></h4>
-                    <%
-                        }
-                    %>
-                  
-                    <button>Sign Up</button>
+                    </div>
+
+                    <div id="Patient" style="display: none;">
+                        <div class="form-group">
+                            <label for="Height" class="col-sm-3 control-label">Height</label>
+                            <div class="col-sm-9">
+                                <input type="number" name="height" placeholder="in cms"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Weight" class="col-sm-3 control-label">Weight</label>
+                            <div class="col-sm-9">
+                                <input type="number" name="weight" placeholder="in kgs"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="BloodGroup" class="col-sm-3 control-label">Blood
+                                Group</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="bloodGroup" placeholder="A+"
+                                       class="form-control" maxlength="3">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="Doctor" style="display: none;">
+                        <div class="form-group">
+                            <label for="Degree" class="col-sm-3 control-label">Degree</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="degree" placeholder="MBBS"
+                                       class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Specialization" class="col-sm-3 control-label">Specialization</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="specialization"
+                                       placeholder="Cardiologist" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9 ">
+                            <%
+                                String message = (String) request.getAttribute("error");
+                                if (message != null) {
+                            %>
+                            <h4><%= message%></h4>
+                            <%
+                                }
+                            %>
+                            <button type="submit">Register</button>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="overlay-container">
@@ -97,38 +180,38 @@
                     <div class="overlay-panel overlay-right">
                         <h2>Welcome to DoctAid</h2>
                         <p>You can stay connected to your healthcare team though virtual visits, using your smartphone, tablet or computer. Ask your provider about what options are available</p>
-                        <a href="signin"><button class="ghost" id="signUp">Sign In</button></a>
+                        <a href="login"><button class="ghost" id="signUp">Sign In</button></a>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-        <!-- ./container -->
+    <!-- ./container -->
 
-        <script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript">
-            $('#userType').on('click', function () {
-                var selection = $(this).val();
-                switch (selection) {
-                    case "1":
-                        $("#Patient").show();
-                        $("#Doctor").hide();
-                        break;
-                    case "2":
-                        $("#Patient").hide();
-                        $("#Doctor").show();
-                        break;
-                    default:
-                        $("#Patient").hide();
-                        $("#Doctor").hide();
-                }
-            });
-        </script>
-    </body>
+    <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('#userType').on('click', function () {
+            var selection = $(this).val();
+            switch (selection) {
+                case "1":
+                    $("#Patient").show();
+                    $("#Doctor").hide();
+                    break;
+                case "2":
+                    $("#Patient").hide();
+                    $("#Doctor").show();
+                    break;
+                default:
+                    $("#Patient").hide();
+                    $("#Doctor").hide();
+            }
+        });
+    </script>
+</body>
 </html>
 <%
     }
