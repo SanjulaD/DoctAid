@@ -13,4 +13,4 @@
 - Admin
 
 ## Technologies Used
-Java, Netbeans IDE, JSP, Servlet, MySQL, Apache Tomcat 9.0.
+Java, Netbeans IDE, JSP, Servlet, MySQL, Docker, Apache Tomcat 9.0.
